@@ -12,7 +12,7 @@ import java.util.Map;
 public class SSA_List {
 
     //HashMap Fast for updating
-    public static  Map<String, Hearing_Office> hearingOfficeList = new HashMap<>();
+    public static  Map<Integer, Hearing_Office> hearingOfficeList = new HashMap<>();
 
     static {
         if (hearingOfficeList.isEmpty()) {

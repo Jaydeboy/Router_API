@@ -23,7 +23,21 @@ public class Social_Security_Handlers {
         resp.getOutputStream().println(json);
 
     }
+    public static void getHearingOffice(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        String uri = req.getRequestURI();
+
+        long id = Long.parseLong(uri.substring("/todos/".length()));
+        String json = GSON.toJson(SSA_List.hearingOfficeList.get(id));
+
+        resp.setStatus(200);
+        resp.setHeader("Contend-Type", "application/json");
+
+        resp.getOutputStream().println(json);
+
+
+
+    }
 
 
 }

@@ -63,7 +63,7 @@ public class SerializationXML {
                         Hearing_Office office = new Hearing_Office(office_Name,site_Code,
                                             ho_Code,region,averageOfficeTimesInMonths);
 
-                        SSA_List.hearingOfficeList.put(site_Code, office);
+                        SSA_List.hearingOfficeList.put(ho_Code, office);
                     }
                 }
             }

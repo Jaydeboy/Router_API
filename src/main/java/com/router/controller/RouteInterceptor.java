@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RouteDefinition {
+public class RouteInterceptor {
 
     private String verb;
     private List<String> pathBits;
 
     //(CRUD) /SSA_Hearing/list
-    public RouteDefinition(String route){
+    public RouteInterceptor(String route){
         //splits the uri into two parts
         //The HTTP request type GET,POST, PUT) & URI
         String[] parts = route.split(" ");
