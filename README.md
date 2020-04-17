@@ -13,13 +13,7 @@ The "router" is use to control which type of HTTP requested(GET/PUT/DELETE/POST/
 and it block which are not. At the same time, execute the allowable request.
 
 
-## Running the test
-
-
-
-
-
-##Built with 
+## Built With 
    * [Maven](https://maven.apache.org/) - Dependency Management
         
         

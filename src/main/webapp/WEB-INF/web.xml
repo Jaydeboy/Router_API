@@ -7,12 +7,12 @@
 
 <web-app>
     <servlet>
-        <servlet-name>RouterServlet</servlet-name>
-        <servlet-class>com.Social_Security.router.Router</servlet-class>
+        <servlet-name>Router</servlet-name>
+        <servlet-class>com.router.controller.Router</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>RouterServlet</servlet-name>
+        <servlet-name>Router</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
