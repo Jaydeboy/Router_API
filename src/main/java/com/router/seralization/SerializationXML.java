@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-public class SerializationXML {
+public class SerializationXML extends Serialization {
 
     public static void Hearing_wait_Time_XML_To_Object() throws IOException, ParserConfigurationException
                                                                 , SAXException {
@@ -52,7 +52,7 @@ public class SerializationXML {
                             office_Name = eElement.getElementsByTagName("HEARING_OFFICE_NAME")
                                     .item(0).getTextContent();
                             site_Code = eElement.getElementsByTagName("SITE_CODE").item(0).getTextContent();
-                            ho_Code = eElement.getElementsByTagName("HO_CODE").item(0).getTextContent() == ""? 0:
+                            ho_Code = eElement.getElementsByTagName("HO_CODE").item(0).getTextContent() == ""? ho_Code++:
                                 Integer.parseInt(eElement.getElementsByTagName("HO_CODE").item(0).getTextContent());
                             region = Integer.parseInt(eElement.getElementsByTagName("REGION")
                                     .item(0).getTextContent());

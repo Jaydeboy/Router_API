@@ -27,9 +27,11 @@ public class Social_Security_Handlers {
 
         String uri = req.getRequestURI();
 
-        long id = Long.parseLong(uri.substring("/todos/".length()));
+        long id = Long.parseLong(uri.substring("/hearing_Office/".length()));
+        System.out.println("************"+id);
         String json = GSON.toJson(SSA_List.hearingOfficeList.get(id));
 
+        String name = req.getHeader("Custom-Name");
         resp.setStatus(200);
         resp.setHeader("Contend-Type", "application/json");
 

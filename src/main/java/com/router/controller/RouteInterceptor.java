@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class RouteInterceptor {
 
-    private String verb;
-    private List<String> pathBits;
+    private String request;
+    private List<String> path;
 
     //(CRUD) /SSA_Hearing/list
     public RouteInterceptor(String route){
@@ -16,11 +16,11 @@ public class RouteInterceptor {
         //The HTTP request type GET,POST, PUT) & URI
         String[] parts = route.split(" ");
         //stores the HTTP request
-        verb = parts[0];
+        request = parts[0];
         //The request Array is mines the HTTP reuest into a string
         String rest = Arrays.stream(parts).skip(1).collect(Collectors.joining(" "));
        // splits the string into a list
-        pathBits = splitUri(rest);
+        path = splitUri(rest);
     }
     //splits the uri based on "/"
     private List<String> splitUri(String rest){
@@ -34,20 +34,21 @@ public class RouteInterceptor {
 
     }
     //ensure the initial path == the inputed uri
-    public boolean matches(String method, String uri){
+    public boolean matches(String method, String uri) {
+
         //makes the GET,POST, PUT) equals the initial input
-        if (!verb.equalsIgnoreCase(method)){
+        if (!request.equalsIgnoreCase(method)){
             return false;
         }
         //splits the URI via splitUri method
         List<String> provideUri = splitUri(uri);
-        if(provideUri.size() != pathBits.size()){
+        if(provideUri.size() != path.size()){
             return false;
         }
 
         for(int i = 0; i < provideUri.size();i++){
             String provideBit = provideUri.get(i);
-            String patternBit = pathBits.get(i);
+            String patternBit = path.get(i);
 
             if(patternBit.startsWith(":")){
                 continue;
@@ -60,4 +61,6 @@ public class RouteInterceptor {
         return true;
     }
 
+
 }
+

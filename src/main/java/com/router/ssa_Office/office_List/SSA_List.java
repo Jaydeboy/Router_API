@@ -14,7 +14,7 @@ public class SSA_List {
     //HashMap Fast for updating
     public static  Map<Integer, Hearing_Office> hearingOfficeList = new HashMap<>();
 
-    static {
+  static {
         if (hearingOfficeList.isEmpty()) {
             try {
                 if (hearingOfficeList.isEmpty()) {
