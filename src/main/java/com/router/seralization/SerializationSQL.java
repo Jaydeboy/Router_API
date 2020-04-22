@@ -25,10 +25,6 @@ public class SerializationSQL {
 
             for(Hearing_Office info : SSA_List.hearingOfficeList.values()){
 
-                        int rows = myStmt.executeUpdate("insert into Hearing_Office"
-                                +"(hearing_Office,ho_code, region, processing_Time) values("
-                                +"'"+info.getHearing_Office_Name()+","+info.getHo_Code()+info.getRegion()+
-                                +info.getAverage_Processing_Time()+")");
 
             }
 
