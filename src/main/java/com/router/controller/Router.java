@@ -15,7 +15,7 @@ public class Router extends HttpServlet{
 
     static {
         routes.put(new RouteInterceptor("GET /hearing_Office/list"),Social_Security_Handlers::getHearingOfficeList);
-        routes.put(new RouteInterceptor("GET /Hearing_Office/:id"),Social_Security_Handlers::getHearingOffice);
+        //routes.put(new RouteInterceptor("GET /Hearing_Office/:id"),Social_Security_Handlers::getHearingOffice);
 
     }
 

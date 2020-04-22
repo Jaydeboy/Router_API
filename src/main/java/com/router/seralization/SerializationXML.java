@@ -51,8 +51,7 @@ public class SerializationXML extends Serialization {
 
                             office_Name = eElement.getElementsByTagName("HEARING_OFFICE_NAME")
                                     .item(0).getTextContent();
-                            site_Code = eElement.getElementsByTagName("SITE_CODE").item(0).getTextContent();
-                            ho_Code = eElement.getElementsByTagName("HO_CODE").item(0).getTextContent() == ""? ho_Code++:
+                            ho_Code = eElement.getElementsByTagName("HO_CODE").item(0).getTextContent() == ""? ho_Code++: //need a better implementation here
                                 Integer.parseInt(eElement.getElementsByTagName("HO_CODE").item(0).getTextContent());
                             region = Integer.parseInt(eElement.getElementsByTagName("REGION")
                                     .item(0).getTextContent());
@@ -60,7 +59,7 @@ public class SerializationXML extends Serialization {
                                     getElementsByTagName("HEARING_OFFICE_TIMES_IN_MONTHS")
                                     .item(0).getTextContent());
 
-                        Hearing_Office office = new Hearing_Office(office_Name,site_Code,
+                        Hearing_Office office = new Hearing_Office(office_Name,
                                             ho_Code,region,averageOfficeTimesInMonths);
 
                         SSA_List.hearingOfficeList.put(ho_Code, office);

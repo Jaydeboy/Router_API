@@ -1,11 +1,13 @@
 package com.router.ssa_Office.office_List;
 
+import com.router.seralization.SerializationSQL;
 import com.router.seralization.SerializationXML;
 import com.router.ssa_Office.HearingOffices.Hearing_Office;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +22,9 @@ public class SSA_List {
                 if (hearingOfficeList.isEmpty()) {
 
                     SerializationXML.Hearing_wait_Time_XML_To_Object();
+                    SerializationSQL.toSQL_Database();
                 }
-            } catch (IOException | SAXException | ParserConfigurationException e) {
+            } catch (IOException | SAXException | ParserConfigurationException | SQLException e) {
                 e.printStackTrace();
             }
         }
