@@ -12,8 +12,8 @@ public class SerializationSQL {
     public static void toSQL_Database() throws SQLException{
 
         String uri = "jdbc:mysql://localhost:3306/router_api";
-        String pin = "student";
-        String password = "student";
+        String pin = "******";
+        String password = "******";
 
 
 
