@@ -2,7 +2,7 @@ package com.router.ssa_Office;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.router.ssa_Office.office_List.SSA_List;
+import com.router.ssa_Office.office_List.HearingList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ public class Social_Security_Handlers {
 
     public static void getHearingOfficeList(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String json = GSON.toJson(SSA_List.hearingOfficeList);
+        String json = GSON.toJson(HearingList.hearingOfficeList );
 
         resp.setStatus(200);
         resp.setHeader("Content-Type", "application/json");
@@ -29,7 +29,7 @@ public class Social_Security_Handlers {
 
         long id = Long.parseLong(uri.substring("/hearing_Office/".length()));
         System.out.println("************"+id);
-        String json = GSON.toJson(SSA_List.hearingOfficeList.get(id));
+        String json = GSON.toJson(HearingList.hearingOfficeList.get(id));
 
         String name = req.getHeader("Custom-Name");
         resp.setStatus(200);

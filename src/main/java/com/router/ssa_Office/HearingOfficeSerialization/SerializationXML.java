@@ -1,7 +1,7 @@
 package com.router.seralization;
 
 import com.router.ssa_Office.HearingOffices.Hearing_Office;
-import com.router.ssa_Office.office_List.SSA_List;
+import com.router.ssa_Office.office_List.HearingList;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -59,10 +59,9 @@ public class SerializationXML extends Serialization {
                                     getElementsByTagName("HEARING_OFFICE_TIMES_IN_MONTHS")
                                     .item(0).getTextContent());
 
-                        Hearing_Office office = new Hearing_Office(office_Name,
-                                            ho_Code,region,averageOfficeTimesInMonths);
+                        Hearing_Office office = new Hearing_Office(office_Name, ho_Code,region);
 
-                        SSA_List.hearingOfficeList.put(ho_Code, office);
+                        HearingList.hearingOfficeList.put(ho_Code, office);
                     }
                 }
             }
