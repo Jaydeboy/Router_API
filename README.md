@@ -4,7 +4,7 @@
 
 ### A Restfiul API Router (for education) 
 ###### This is for demonstration purposes only.
-A routing API provides a means for routing API request intended for API servers. 
+A routing API provides a means for routing an API request intended for API servers. 
  
 
 
