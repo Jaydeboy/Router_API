@@ -11,4 +11,11 @@ public class HearingList {
     public static  Map<Integer, Hearing_Office> hearingOfficeList = new HashMap<>();
 
 
+
+    public HashMap<Integer, Hearing_Office> getHearingList(){
+
+                return new HashMap<>(hearingOfficeList);
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.router.seralization;
+package com.router.ssa_Office.Serialization;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

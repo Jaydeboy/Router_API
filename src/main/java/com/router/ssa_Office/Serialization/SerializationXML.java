@@ -1,4 +1,4 @@
-package com.router.seralization;
+package com.router.ssa_Office.Serialization;
 
 import com.router.ssa_Office.HearingOffices.Hearing_Office;
 import com.router.ssa_Office.office_List.HearingList;
