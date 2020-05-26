@@ -17,19 +17,8 @@ The "router" is use to control which type of HTTP requested(GET/PUT/DELETE/POST/
    
 ## Security
         
- 
- ## Database
-     
-   * [MYSQL](https://www.mysql.com/) - Database Schema
-        
-    Example: Entity-relationshp-Diagram
-   ![Entity](SQL.PNG)
         
         
-        
-        
-        
- 
         
         
 ## Acknowledgement
