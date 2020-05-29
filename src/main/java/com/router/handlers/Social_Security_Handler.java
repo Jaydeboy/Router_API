@@ -3,13 +3,14 @@ package com.router.handlers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.stream.Collectors;
 
 
 public class Social_Security_Handler {
@@ -24,10 +25,8 @@ public class Social_Security_Handler {
         connection.setDoInput(true);
 
 
-        try (InputStream inputStream = connection.getInputStream()) {
-
-            json = GSON.toJson(inputStream.toString());
-            connection.disconnect();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+            json = GSON.toJson(br.lines().collect(Collectors.joining()));
         }
 
 
