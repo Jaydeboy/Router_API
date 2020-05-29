@@ -18,22 +18,19 @@ public class Social_Security_Handler {
     private static final Gson GSON = new GsonBuilder().create();
 
     public static void getHearingOfficeList(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String json ="";
+        String result ="";
 
         URL url = new URL("https://www.ssa.gov/appeals/DataSets/01_NetStat_Report.xml");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoInput(true);
 
-
         try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-            json = GSON.toJson(br.lines().collect(Collectors.joining()));
+            result = br.lines().collect(Collectors.joining());
         }
 
-
-
         resp.setStatus(200);
-        resp.setHeader("Content-Type", "application/json");
-        resp.getOutputStream().println(json);
+        resp.setHeader("Content-Type", "application/xml");
+        resp.getOutputStream().println(result);
 
     }
 
