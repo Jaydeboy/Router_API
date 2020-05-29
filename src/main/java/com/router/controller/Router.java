@@ -1,7 +1,5 @@
 package com.router.controller;
 
-import com.router.ssa_Office.Social_Security_Handlers;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +12,8 @@ public class Router extends HttpServlet{
     private static final Map<RouteInterceptor, RouteHandler> routes = new HashMap<>();
 
     static {
-        routes.put(new RouteInterceptor("GET /hearing_Office/list"),Social_Security_Handlers::getHearingOfficeList);
-        //routes.put(new RouteInterceptor("GET /Hearing_Office/:id"),Social_Security_Handlers::getHearingOffice);
+        routes.put(new RouteInterceptor("GET /hearing_Office/list"), com.router.handlers.Social_Security_Handler::getHearingOfficeList);
+
 
     }
 
