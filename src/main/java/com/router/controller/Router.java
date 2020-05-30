@@ -1,5 +1,7 @@
 package com.router.controller;
 
+import com.router.handlers.Social_Security_Handler;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +14,8 @@ public class Router extends HttpServlet{
     private static final Map<RouteInterceptor, RouteHandler> routes = new HashMap<>();
 
     static {
-        routes.put(new RouteInterceptor("GET /hearing_Office/list"), com.router.handlers.Social_Security_Handler::getHearingOfficeList);
 
+        routes.put(new RouteInterceptor("GET /hearing_Office/list"),(req,resp)-> Social_Security_Handler.getHearingOfficeList(req,resp));
 
     }
 
@@ -28,8 +30,9 @@ public class Router extends HttpServlet{
             if(route.getKey().matches(req)){
                 route.getValue().execute(req, resp);
                 return;
+            }else{
+                noMatchHandler(resp);
             }
-            noMatchHandler(resp);
         }
     }
 

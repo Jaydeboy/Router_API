@@ -8,10 +8,4 @@ import java.io.IOException;
 public interface RouteHandler {
     void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException;
 
-
-
-   
-
-
-
 }
