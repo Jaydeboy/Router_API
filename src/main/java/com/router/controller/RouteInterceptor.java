@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class RouteInterceptor {
 
     private String request;
-    private static List<String> path;
+    private List<String> path;
 
     //(CRUD) /SSA_Hearing/list
     public RouteInterceptor(String route){
@@ -34,7 +34,7 @@ public class RouteInterceptor {
 
     }
     //ensure the initial path == the inputed uri
-    public boolean matches(String method, String uri) {
+    private boolean matches(String method, String uri) {
 
 
         if (!request.equalsIgnoreCase(method)){
