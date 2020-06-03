@@ -17,6 +17,8 @@ public class Social_Security_Handler {
 
     private static URL url = null;
     private static  HttpURLConnection connection = null;
+    private static String result ="";
+
 
     public static void getHearingOfficeList(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
@@ -25,9 +27,6 @@ public class Social_Security_Handler {
         connection.setRequestMethod("GET");
         connection.setDoInput(true);
         connection.setReadTimeout(15*1000);
-        connection.connect();
-
-        String result ="";
 
         try(BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));){
             result = br.lines().collect(Collectors.joining());
@@ -35,29 +34,39 @@ public class Social_Security_Handler {
             resp.setHeader("Content-Type", "application/xml");
             resp.getOutputStream().println(result);
         }
-
             connection.disconnect();
     }
-    public static void getFieldOfficeList(HttpServletRequest req, HttpServletResponse resp){
 
+    public static void getFieldOfficeList(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        URL url = new URL("https://www.ssa.gov/open/data/FO-Address-Open-Close-Times.csv");
+        connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setDoInput(true);
 
-
+        try(BufferedReader  bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));){
+            result = bufferedReader.lines().collect(Collectors.joining("\n"));
+            resp.getStatus();
+            resp.setHeader("Content-Type", "text/CSV");
+            resp.getOutputStream().print(result);
+        }
+            connection.disconnect();
     }
+
     public void toDatabase(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
 
         String url = "jdbc:mysql://localhost:3306/social_security_data";
-        String pin = "student";
-        String password = "student";
+        String pin = "******";
+        String password = "******";
 
         try(Connection connection = DriverManager.getConnection(url,pin,password)){
-
-
-
-
         }
-
-
-
     }
+
+
+
+
+
+
+
 }

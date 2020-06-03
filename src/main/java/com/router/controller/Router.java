@@ -16,6 +16,7 @@ public class Router extends HttpServlet{
     static {
 
         routes.put(new RouteInterceptor("GET /hearing_Office/list"),(req,resp)-> Social_Security_Handler.getHearingOfficeList(req,resp));
+        routes.put(new RouteInterceptor("GET /field_Office/list"),(req, resp) -> Social_Security_Handler.getFieldOfficeList(req,resp));
 
     }
 
@@ -30,16 +31,27 @@ public class Router extends HttpServlet{
             if(route.getKey().matches(req)){
                 route.getValue().execute(req, resp);
                 return;
-            }else{
-                noMatchHandler(resp);
             }
         }
+        noMatchHandler(resp);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException{
         genericHandler(req,resp);
     }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        genericHandler(req,resp);
+    }
 
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws  IOException{
+        genericHandler(req,resp);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+        genericHandler(req,resp);
+    }
 
 }
