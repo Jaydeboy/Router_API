@@ -5,7 +5,7 @@
 
 ## Explanation
 Eliminates the need for using cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
-(One can shorting a route for the client)
+
 
 #### Added Benefits
 1. Provides a routing management system to catalogue routes.
