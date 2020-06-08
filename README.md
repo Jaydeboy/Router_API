@@ -4,7 +4,7 @@
 
 
 ## Explanation
-Eliminates the need for using cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
+Eliminates the need for the use of cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
 
 
 #### Added Benefits
