@@ -7,13 +7,12 @@ import java.util.stream.Collectors;
 
 public class RouteInterceptor {
 
-    private String request;
-    private List<String> path;
+    private final String request;
+    private final List<String> path;
 
     //(CRUD) /SSA_Hearing/list
     public RouteInterceptor(String route){
-        //splits the uri into two parts
-        //The HTTP request type GET,POST, PUT) & URI
+        //splits the uri into two parts 1. CRUD 2. request
         String[] parts = route.split(" ");
         //stores the HTTP request
         request = parts[0];

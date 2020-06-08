@@ -7,5 +7,4 @@ import java.io.IOException;
 @FunctionalInterface
 public interface RouteHandler {
     void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException;
-
 }

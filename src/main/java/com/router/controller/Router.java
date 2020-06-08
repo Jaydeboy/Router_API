@@ -14,12 +14,12 @@ public class Router extends HttpServlet{
     private static final Map<RouteInterceptor, RouteHandler> routes = new HashMap<>();
 
     static {
-
+        //*********** Pre-approved CRUD request
         routes.put(new RouteInterceptor("GET /hearing_Office/list"),(req,resp)-> Social_Security_Handler.getHearingOfficeList(req,resp));
         routes.put(new RouteInterceptor("GET /field_Office/list"),(req, resp) -> Social_Security_Handler.getFieldOfficeList(req,resp));
 
     }
-
+        //**********to process a 404 response*************
     private void noMatchHandler(HttpServletResponse resp) throws IOException {
         resp.setStatus(404);
         resp.getWriter().println("Route not found");
@@ -36,22 +36,24 @@ public class Router extends HttpServlet{
         noMatchHandler(resp);
     }
 
+
+    //*****************************CRUD*************************************************
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException{
         genericHandler(req,resp);
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        genericHandler(req,resp);
+        noMatchHandler(resp);
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws  IOException{
-        genericHandler(req,resp);
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+        noMatchHandler(resp);
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
-        genericHandler(req,resp);
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        noMatchHandler(resp);
     }
 
 }

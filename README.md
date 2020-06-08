@@ -1,21 +1,39 @@
 
 
-# Router API
+# Restful API Router 
 
-### A Restfiul API Router (for education) 
-###### This is for demonstration purposes only.
-A routing API provides a means for routing an API request intended for API servers. 
+
+## Explanation
+Eliminates the need for using cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
+(One can shorting a route for the client)
+
+#### Added Benefits
+1. Provides a routing management system to catalogue routes.
+2. Decouples the client from the server. As such, the server is free from holding data/state.
+
+
+#### In plain words:
+It is designed to forward API Server request from one central point.
+
+#### Oracle says:
+".........The Router API provides a mechanism for routing
+ API requests intended for API Servers......"
  
 
+##
+## Class Diagram
 
-#### I. Router
-The "router" is use to control which type of HTTP requested(GET/PUT/DELETE/POST/etc) is allowable.
+
+![Class Diagram](ClassDiagram.png)
+
+
 
 
 ## Built With 
    * [Maven](https://maven.apache.org/) - Dependency Management
-   
+##  
 ## Security
+
         
         
         
