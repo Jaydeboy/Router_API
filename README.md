@@ -4,8 +4,8 @@
 
 
 ## Explanation
-Eliminates the need for using cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
-(One can shorting a route for the client)
+Eliminates the need for the use of cumbersome RESTful routes by providing a simple/easy means to matching URIs to a resource(s).
+
 
 #### Added Benefits
 1. Provides a routing management system to catalogue routes.
