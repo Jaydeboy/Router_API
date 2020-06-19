@@ -15,7 +15,7 @@ class HelperHandler {
 
         connection.setRequestMethod("GET");
         //sets the connection time for no response to 2 minutes (milliseconds)
-        connection.setConnectTimeout(120000);
+        connection.setConnectTimeout(15*20000);
         //set the return data time
         connection.setReadTimeout(15*1000);
         //returns UrlConnection objects -- not this does not initiate a connection
