@@ -12,21 +12,33 @@ class HelperHandler {
 
     static void connectionEstablished(HttpServletResponse resp, URL url) throws IOException {
        HttpURLConnection connection = null;
-       String result ="";
 
         connection.setRequestMethod("GET");
+        //sets the connection time for no response to 2 minutes (milliseconds)
+        connection.setConnectTimeout(120000);
+        //set the return data time
         connection.setReadTimeout(15*1000);
+        //returns UrlConnection objects -- not this does not initiate a connection
+        // an implied connection is establish when an inputstream is activated.
         connection = (HttpURLConnection) url.openConnection();
 
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))){
-            result = br.lines().collect(Collectors.joining());
-            resp.setStatus(200);
-            resp.getOutputStream().println(result);
-        }finally {
-            connection.disconnect();
-            connection.getInputStream().close();
-            connection.getOutputStream().close();
-        }
+                ///Connects to the server and response is wrraped in a BufferReader
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                //set the responseCode
+                resp.setStatus(connection.getResponseCode());
+                //sets the contenet type()
+                resp.setContentType(connection.getContentType());
+                // turns the input in a stream... collecting it into a string
+                String result = br.lines().collect(Collectors.joining("\n"));
+                //returns the string to the HTTPServlet outputstream
+                resp.getOutputStream().println(result);
+
+            } finally {
+                //close the HttpURLConnection
+                connection.disconnect();
+                //close the inputStream assoicated with the URLconnection
+                connection.getInputStream().close();
+            }
 
     }
 
